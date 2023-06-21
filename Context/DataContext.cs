@@ -17,6 +17,7 @@ namespace todolist.Context
         {
             modelBuilder.Entity<UserModel>().ToTable("user");
             modelBuilder.Entity<TaskModel>().ToTable("tasks");
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }
     }

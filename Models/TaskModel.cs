@@ -14,6 +14,7 @@ namespace todolist.Models
         public string? Task { get; set; }
         [MaxLength(100)]
         public string? Description { get; set; }
-        public ICollection<UserModel> User { get; set; }
+        public int? UserId { get; set; }
+        public UserModel? User {get;set;}
     }
 }
