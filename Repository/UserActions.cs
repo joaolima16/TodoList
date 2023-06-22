@@ -28,6 +28,20 @@ namespace todolist.Repository
             }
         }
 
+        public Boolean deleteUser(int id)
+        {
+            try{
+                var _user = _DataContext.User.Where(p => p.Id == id).FirstOrDefault();
+                _DataContext.User.Remove(_user);
+                _DataContext.SaveChanges();
+                return true;
+            }
+            catch(DbException ex){
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
         public Boolean LoginUser(UserModel user)
         {
             try

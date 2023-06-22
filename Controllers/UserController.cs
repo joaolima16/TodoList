@@ -64,5 +64,15 @@ namespace todolist.Controllers
                 return BadRequest("Ocorreu um erro: " + ex.Message);
             }
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteUser(int id){
+            try{
+                _IUser.deleteUser(id);
+                return Ok($"Usuário com id: {id} deletado");
+            }
+            catch(Exception ex){
+                return BadRequest("Ocorreu um erro ao deletar o usuário: " + ex.Message);
+            }
+        }
     }
 }

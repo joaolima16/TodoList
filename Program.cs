@@ -13,6 +13,7 @@ builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(connecti
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUser, UserActions>();
+builder.Services.AddScoped<ITask, TaskActions>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

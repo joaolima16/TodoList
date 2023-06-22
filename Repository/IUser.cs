@@ -11,6 +11,7 @@ namespace todolist.Repository
         public UserModel addUser(UserModel user);
         public Boolean LoginUser(UserModel user);
         public UserModel updateUser(int id, UserModel user);
+        public Boolean deleteUser(int id);
 
     }
 }
