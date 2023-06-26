@@ -8,7 +8,6 @@ namespace todolist.Models
 {
     public class TaskModel
     {
-        [Required]
         public int? Id { get; set; }
         [MaxLength(50)]
         public string? Task { get; set; }

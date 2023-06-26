@@ -16,13 +16,56 @@ namespace todolist.Controllers
         public TaskController(ITask iTask) => _ITask = iTask;
 
         [HttpPost]
-        public IActionResult AddTask([FromBody] TaskModel task){
-            try{
+        public IActionResult AddTask([FromBody] TaskModel task)
+        {
+            try
+            {
                 _ITask.AddTask(task);
                 return Ok(task);
             }
-            catch(Exception ex){
+            catch (Exception ex)
+            {
                 return BadRequest("Ocorreu um erro com a aplicação: " + ex.Message);
+            }
+        }
+        [HttpGet("{id}")]
+        public IActionResult listTasks(int id)
+        {
+            try
+            {
+                List<TaskModel> tasks = _ITask.ListTasks(id);
+                if (tasks != null)
+                {
+                    return Ok(tasks);
+                }
+                return BadRequest("Dados não encontrados");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut("{id}")]
+        public IActionResult UpdateTask(int id, [FromBody] TaskModel new_task){
+            try{
+                _ITask.UpdateTask(id, new_task);
+                return Ok("Task atualizada");
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTask(int id){
+            try{
+                Boolean delTask = _ITask.deleteTask(id);
+                if(delTask == true){
+                    return Ok($"Task deletada, id: {id}");
+                }
+                return BadRequest($"Não foi possível deletar a task de id: {id}");
+            }
+            catch(Exception ex){
+                return BadRequest(ex.Message);
             }
         }
     }
