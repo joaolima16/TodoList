@@ -38,7 +38,8 @@ namespace todolist.Controllers
             {
                 if (_user == true)
                 {
-                    return Ok("Usuário Logado!");
+                    var token = Service.TokenService.GenerateToken(user);
+                    return Ok(token);
                 }
                 return BadRequest("Usuário ou senha incorretos");
             }

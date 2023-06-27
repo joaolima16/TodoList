@@ -281,3 +281,4 @@ C:\Users\joão vitor\Desktop\todolist\todolist\obj\Debug\net7.0\refint\todolist.
 C:\Users\joão vitor\Desktop\todolist\todolist\obj\Debug\net7.0\todolist.pdb
 C:\Users\joão vitor\Desktop\todolist\todolist\obj\Debug\net7.0\todolist.genruntimeconfig.cache
 C:\Users\joão vitor\Desktop\todolist\todolist\obj\Debug\net7.0\ref\todolist.dll
+C:\Users\joão vitor\Desktop\todolist\todolist\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
